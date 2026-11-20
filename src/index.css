@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #FAF9F6;
+  --surface: #FFFFFF;
+  --surface-subtle: #F3F2EC;
+  --border: #E4E2DA;
+  --border-strong: #CBC8BC;
+  --ink: #141413;
+  --ink-secondary: #54534E;
+  --ink-muted: #7A7871;
+  --accent: #165B43;
+  --accent-hover: #104633;
+  --accent-soft: #EBF3EF;
+}
+
+.dark {
+  --bg: #111110;
+  --surface: #191917;
+  --surface-subtle: #21211E;
+  --border: #2C2C28;
+  --border-strong: #3F3F3A;
+  --ink: #F2F1EC;
+  --ink-secondary: #A6A49D;
+  --ink-muted: #7C7A74;
+  --accent: #6BB89A;
+  --accent-hover: #84C9AE;
+  --accent-soft: #182721;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+    margin: 0;
+  }
+
+  ::selection {
+    background-color: var(--accent-soft);
+    color: var(--ink);
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+.font-serif-display {
+  font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
+}
+
+.font-sans {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
